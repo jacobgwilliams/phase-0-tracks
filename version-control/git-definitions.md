@@ -13,3 +13,5 @@ A commit does just that - it commits and records updates to the git repository. 
 
 * What is a merge conflict?
 A merge conflict is when two branches you want to merge have diverged, for instance, you and another programmer edited the same line of code differently in the same file, and are trying to merge them together. Git responds with an error message and it's up to the programmer to resolve the conflict before merging. This is prevented by always pulling from the latest commit.
+
+# This is my message for Glenna. Hi!
