@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jacob's Practice Form</title>
+</head>
+<body>
+<h1>Welcome to Boat Depot!</h1>
+<h2>The only place to get a boat online and instantly review it.</h2>
+<form name="practice form" action="success.html" method="post">
+  <fieldset>
+    <h2>First things first...</h2>
+    <div>
+      <label>What's your name, sailor?</label>
+      <input type="text" name="fullname" placeholder="FirstName LastName">
+    </div>
+    <div>
+      <label>What's your email?</label>
+      <input type="email" name="email" placeholder="email@piratesbay.org">
+    </div>
+    <div>
+      <label>Enter your SAILOR PASSWORD!</label>
+      <input type="password" name="password">
+    </div>
+  </fieldset>
+  <fieldset>
+    <h2>Time to choose your boat!</h2>
+    <div>
+      <label>Type of boat:</label>
+      <select name="boat">
+        <option value="boat_size">Dinghy</option>
+        <option value="boat_size">Cruise Liner</option>
+        <option value="boat_size">Sailboat</option>
+      </select>
+    </div>
+    <div>
+      <label>Boat Review:</label>
+        <textarea name="boat-review"></textarea>
+    </div>
+    <button type="submit">Submit YAR Answers</button>
+  </fieldset>
+</form>
+</body>
+</html>
