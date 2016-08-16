@@ -1,0 +1,21 @@
+.whole-octopus {
+  position:relative;
+}
+
+.octopus {
+  display:block;
+  margin:50px auto auto auto;
+  position:relative;
+}
+
+.hat {
+  position:absolute;
+  top:-50px;
+  left:35%;
+}
+
+.glasses {
+  position:absolute;
+  top:95px;
+  left:43%;
+}
