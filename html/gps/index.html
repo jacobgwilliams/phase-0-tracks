@@ -54,3 +54,19 @@
 </footer>
 </body>
 </html>
+
+<!--
+  Reflection:
+  *What is the purpose of HTML5 semantic tags?*
+  The idea of semantic tags are new to me, but I like them because I can see that they add more meaning to each section of code. They make it easier for another developer to come in and see how your page is laid out, it makes it easy to use those tags as selectors for CSS, and it also helps for people using screen readers or other devices to read and understand your page. The ones I like the most are <head>, <nav>, and <footer>, just because I am super familiar with those elements on a page and how I would implement them. I am excited to try using <article>, <aside> and <section> to make my code more specific.
+
+  *What is the order the browser uses to display elements on a page?*
+  The browser uses DOM trees to display elements on a page, which now explains why it would be useful to break your page down at the top level with <head> and <body> tags, then within those use <header> <main> and <footer> tags, and next specific elements within those elements. The browser will know to start at the root and progress node to node, and then apply CSS to those elements IN THAT ORDER. This is useful to know, so a page will load properly but also helps to realize that CSS written for a node under another node (a <p> element nested inside your <article> element) will overwrite the CSS written for the node above it.
+  (source:https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=en)
+
+  *What did you learn about Sublime in this challenge?*
+  I learned that Sublime is super user friendly, and one of it's main assets is helping to cut down on time spent doing busy work. Snippets help you create a boilerplate for a specific kind of document, like HTML, so you don't have to recreate it constantly. It also has settings to allow for autocompletion of indentions, tags, and more. I'll definitely be creating more snippets as the challenges and scope of projects grow and become more complex.
+
+  *What concept in this challenge was most difficult for you?*
+  The biggest challenge was definitely learning the specific applications of the semantic elements. Things like <header> and <footer> make sense to me, but ones like <aside> or <article> are a little more specific and I just want to make sure I'm using them appropriately. A way I can make sure I'm doing this is reading further into the resources linked in the challenge, but also finding example code that uses these elements and see for myself their applications.
+-->
