@@ -1,0 +1,15 @@
+section#contact-info {
+  font-size:.8em;
+}
+
+section.job {
+  background-color:#e9e5dc;
+  border-radius:10px;
+  margin-top:5px;
+  margin-bottom:5px;
+  padding:10px;
+}
+
+ul.accomplishment-list {
+  font-size:.8em;
+}
