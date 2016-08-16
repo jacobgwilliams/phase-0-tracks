@@ -13,3 +13,11 @@ section.job {
 ul.accomplishment-list {
   font-size:.8em;
 }
+
+ul > :first-child {
+  color:red;
+}
+
+section h3 {
+  background-color:purple;
+}
