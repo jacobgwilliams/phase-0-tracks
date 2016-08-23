@@ -1,0 +1,55 @@
+h1, h2 {
+  font-family: Helvetica;
+}
+
+p {
+  font-family: Georgia;
+}
+
+header {
+  background-image: url("https://assets-cdn.github.com/images/modules/logos_page/Octocat.png");
+}
+
+header h1 {
+  /*
+  background-color: blue;
+  */
+  padding: 20px;
+  margin-bottom: 0px;
+}
+
+header p {
+  /*
+  background-color: lightblue;
+   */
+}
+
+.column-1 {
+  background-color:lightblue;
+  width: 45%;
+  float: left;
+  margin: 5px;
+  padding: 5px;
+  border: solid;
+}
+
+.column-2 {
+  background-color:skyblue;
+  width: 45%;
+  float: right;
+  margin: 5px;
+  padding: 5px;
+  border: solid;
+}
+
+footer {
+  display: block;
+  vertical-align: bottom;
+  clear: both;
+  border: solid;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  text-align: center;
+  width: 80%;
+}
