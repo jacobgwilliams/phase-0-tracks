@@ -1,0 +1,18 @@
+Elevator Robot:
+
+- Robot enters elevator
+- Assuming robot has some integer input (the floor number "floornum")
+  - Robot hand starts hovering at Floor 1 button (bottom left)
+  - Counter = 1
+  - Until counter == floornum
+    - Robot moves hand right to the next button.
+    - Increment counter (starting at 1) += 1 for every button traversed.
+    - If robot hits end of row before counter == floornum:
+      - Move up one row, hover back number of spaces moved to begin with
+        # Unsure how elevators work, but assuming numbers increase left to right, then up a row, left to right again, etc.
+      - Continue counting buttons
+    - When counter == floornum
+      - Press button
+      - DING!
+
+
