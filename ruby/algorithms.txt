@@ -16,3 +16,17 @@ Elevator Robot:
       - DING!
 
 
+EVERYDAY ALGORITHMS:
+Salt Shaker Cleaning Closing Duties
+# I'm a waiter, I was just trying to think of something relevant to my work
+
+- My restaurant has 20 tables, numbered 1 through 20.
+- Wait until time is 11:00 PM (close)
+- Until table_count == 20
+- Starting at table 1
+  - Wipe down salt and pepper shakers
+  - Move on to next table in sequence
+  - Increment table_count += 1
+  - IF Salt and Pepper shakers are already_clean
+    - Move on to next table
+    - Increment table_count += 1
