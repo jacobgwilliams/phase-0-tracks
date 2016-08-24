@@ -81,3 +81,6 @@ while survey_count < employee_count
 
   survey_count += 1
 end
+
+# YAY FOR FRIENDSHIP!
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
