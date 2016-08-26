@@ -26,7 +26,7 @@ def encryptor(user_pass)
 
   end
 
-  p output
+  return output
 end
 
 
@@ -61,13 +61,15 @@ def decryptor(user_decpt)
 
     counter += 1
   end
-puts output
+return output
 
 end
 
 # DRIVER CODE
 
-encryptor("abc") # should return "bcd"
-encryptor("zed") # should return "afe"
-decryptor("bcd") # should return "abc"
-decryptor("afe") # should return "zed"
+# encryptor("abc") # should return "bcd"
+# encryptor("zed") # should return "afe"
+# decryptor("bcd") # should return "abc"
+# decryptor("afe") # should return "zed"
+
+puts decryptor(encryptor("swordfish"))
