@@ -72,4 +72,26 @@ end
 # decryptor("bcd") # should return "abc"
 # decryptor("afe") # should return "zed"
 
-puts decryptor(encryptor("swordfish"))
+# puts decryptor(encryptor("swordfish"))
+# Nested methods work because they work from the inside out!
+
+# Release 5: Add an Interface
+
+# Print a prompt to the screen, ask if agent is encrypting or decrypting
+# Us an if/else statement to determine which method to call
+# Get input from agent
+
+puts "Agent, are you encrypting or decrypting? [e/d]"
+entry = gets.chomp
+
+if entry == "e"
+  puts "Enter password to encrypt:"
+  user_pass = gets.chomp
+  p encryptor(user_pass)
+elsif entry == "d"
+  puts "Enter password to decrypt:"
+  user_decpt = gets.chomp
+  p decryptor(user_decpt)
+else
+  puts "invalid entry you are a bad agent!!!!"
+end
