@@ -1,8 +1,6 @@
 # Encrypt
 # Get user password
 
-puts "Insert Password"
-user_pass = gets.chomp
 
 # Get word length
 # Counter starts at 0, while counter is less than length keep looping indexes
@@ -12,11 +10,14 @@ user_pass = gets.chomp
 # Puts the new password
 def encryptor(user_pass)
   counter = 0
-  output = " "
+  output = ""
   while counter < user_pass.length
 
     if user_pass[counter] == " "
       output += " "
+    elsif user_pass[counter] == "z"
+      # conditional for "z"
+      output += "a"
     else
       output += user_pass[counter].next
     end
@@ -28,7 +29,6 @@ def encryptor(user_pass)
   p output
 end
 
-encryptor(user_pass)
 
 
 
@@ -37,12 +37,10 @@ encryptor(user_pass)
 # Counter starts at 0, while counter is less than length keep looping indexes
 # Set variable to alphabet with string input a-z
 # Go through each character in alphabet string, check the index of current letter against it
-puts "Password to decrypt:"
-user_decpt = gets.chomp.downcase
 
 def decryptor(user_decpt)
   counter = 0
-  output = " "
+  output = ""
   alphabet = "abcdefghijklmnopqrstuvwxyz"
 
   while counter < user_decpt.length
@@ -67,4 +65,9 @@ puts output
 
 end
 
-decryptor(user_decpt)
+# DRIVER CODE
+
+encryptor("abc") # should return "bcd"
+encryptor("zed") # should return "afe"
+decryptor("bcd") # should return "abc"
+decryptor("afe") # should return "zed"
