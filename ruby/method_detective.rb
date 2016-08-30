@@ -14,25 +14,27 @@ p "zom".insert(1, 'o')
 p "enhance".ljust(11).prepend("    ")
 # => "    enhance    "
 
-# "Stop! You’re under arrest!".<???>
+p "Stop! You’re under arrest!".upcase
 # => "STOP! YOU’RE UNDER ARREST!"
 
-# "the usual".<???>
+p "the usual".concat(" suspects")
+p "the usual".insert(-1, " suspects")
 #=> "the usual suspects"
 
-# " suspects".<???>
+p " suspects".prepend("the usual")
 # => "the usual suspects"
 
-# "The case of the disappearing last letter".<???>
+p "The case of the disappearing last letter".chop
 # => "The case of the disappearing last lette"
 
-# "The mystery of the missing first letter".<???>
+p "The mystery of the missing first letter".slice(-38..-1)
+p "The mystery of the missing first letter".delete("T")
 # => "he mystery of the missing first letter"
 
-# "Elementary,    my   dear        Watson!".<???>
+p "Elementary,    my   dear        Watson!".squeeze(' ')
 # => "Elementary, my dear Watson!"
 
-# "z".<???>
+p "z".codepoints
 # => 122
 # (What is the significance of the number 122 in relation to the character z?)
 
