@@ -6,6 +6,12 @@
 # decor theme (string)
 # etc. string, int, and bool data
 # All keys should be symbols unless a string is absolutely necessary
+# Program should also:
+# Prompt designer/user for this info
+# Convert any user input into appropriate data type
+# Print the hash back to screen when designer answers all questions
+# Give user opp to update a key. Escape if user says "none." If user enters "decor_theme," program should ask for new key value and update key. (Strings have methods to turn them into symbols.)
+# Print latest varsion of hash, exit
 
 client_details = {}
 
@@ -32,9 +38,15 @@ puts "PROCESSING..."
 puts "Client detail sheet:"
 p client_details
 
-# Program should also:
-# Prompt designer/user for this info
-# Convert any user input into appropriate data type
-# Print the hash back to screen when designer answers all questions
-# Give user opp to update a key. Escape if user says "none." If user enters "decor_theme," program should ask for new key value and update key. (Strings have methods to turn them into symbols.)
-# Print latest varsion of hash, exit
+puts "Do you need to make any updates to the above form? Select a section for editing by entering the 'key' (phrase followed by a colon) and make your edits. Otherwise, type 'exit'."
+input = gets.chomp
+if input == "exit"
+  return
+else
+  input = input.to_sym
+  puts "You chose to edit #{input}. What new data would you like to enter in this field?"
+  client_details[input] = gets.chomp
+end
+
+puts "Have a good day! Here's your client details:"
+p client_details
