@@ -77,4 +77,16 @@ restaurant = {
   }
 }
 
-puts restaurant
+# DRIVER CODE
+
+puts restaurant[:server][:supplies][1] # 'Paper'
+puts restaurant[:manager][:uniform][0] # 'Business casual shirt'
+restaurant[:manager][:uniform] << 'Fun little hat'
+p restaurant[:manager][:uniform] # Add 'Fun little hat' to uniform array
+restaurant[:line_cook][:duties][:yell].upcase!
+p restaurant[:line_cook][:duties] # Yell is in all upcase
+
+restaurant.each do |job, component|
+  p "As a #{job}, you will be expected to bring #{component[:supplies]}"
+end
+# ^ Not pretty, but does list each job and the supplies they will need to bring.
