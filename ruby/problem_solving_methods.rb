@@ -53,3 +53,30 @@ end
 # p fib_calc(15)
 test_var = fib_calc(100)
 p test_var[-1] == 218922995834555169026
+
+# RELEASE 2: Sort an array
+# Julia and I decided to make an algorithm that takes all integers in an array, and puts the evens in the front, odds in the back.
+# PSEUDOCODE & ALGORITHM-ING!
+# Sort an array: put all odd numbers at front of array, evens at back end.
+# Take an array of integers
+# Loop through each item and see if it is even or odd
+# Split into seperate arrays based on evens and odds
+# store them all in a new variable by adding them together!
+
+arr = [4, 4, 3, 4, 5, 205, 7, 8, 9]
+def evens_first(arr)
+  evens_array = []
+  odds_array = []
+  counter = 0
+  while counter < arr.length
+      if arr[counter].even?
+        evens_array << arr[counter]
+      else
+        odds_array << arr[counter]
+      end
+      counter += 1
+    end
+    joined_array = evens_array + odds_array
+end
+
+evens_first(arr)
