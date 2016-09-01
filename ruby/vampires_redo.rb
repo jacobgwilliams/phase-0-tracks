@@ -7,6 +7,7 @@
 # Initial Survey
 employee_count = 0
 survey_count = 0
+current_year = Time.now.to_s[0..3].to_i
 
 puts "How many employees are we interviewing today?"
 employee_count = gets.chomp.to_i
@@ -40,11 +41,11 @@ while survey_count < employee_count
     if name == 'Drake Cula' || name == 'Tu Fang'
       vampireness = 'Definitely a vampire.'
     else
-      if (age + birth_year) == Time.now.to_s[0..3].to_i && (  garlic_pref == 'y' || insurance == 'y')
+      if (age + birth_year) == current_year && ( garlic_pref == 'y' || insurance == 'y')
         vampireness = 'Probably not a vampire.'
-      elsif (age + birth_year) != Time.now.to_s[0..3].to_i && (  garlic_pref == 'n' || insurance == 'n')
+      elsif (age + birth_year) != current_year && (  garlic_pref == 'n' || insurance == 'n')
         vampireness = 'Probably a vampire.'
-      elsif (age + birth_year) != Time.now.to_s[0..3].to_i &&  garlic_pref == 'n' && insurance == 'n'
+      elsif (age + birth_year) != current_year &&  garlic_pref == 'n' && insurance == 'n'
         vampireness = 'Almost certainly a vampire.'
       else
         vampireness = "Results inconclusive."
