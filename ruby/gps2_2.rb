@@ -8,7 +8,19 @@
   # print the list to the console [can you use one of your other methods here?] interpolation and print commands
 # output: hash
 
+string = "carrots apples cereal pizza"
 
+def create_list(string)
+  grocery_hash = {}
+  grocery_array = string.split
+  grocery_array.each do |item|
+    grocery_hash[item] = 0
+  end
+  puts "Your grocery list:"
+  grocery_hash.each do |item, quant|
+    puts "- #{item}: #{quant}"
+  end
+end
 
 # Method to add an item to a list
 # input: item name and optional quantity
