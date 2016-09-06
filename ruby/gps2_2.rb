@@ -1,3 +1,6 @@
+# GPS 2.2
+# Jacob Williams
+
 # Method to create a list
 # input: string of items separated by spaces (example: "carrots apples cereal pizza")
 # steps:
@@ -71,3 +74,15 @@ def pretty_list
 end
 
 pretty_list
+
+# Reflection:
+# What did you learn about pseudocode?
+# Pesudocoding definitely helps plan ahead so you aren't FYWTG (flailing your way to glory? Is that right?) Regardless, it helped me set a specific plan of action and I imagine would have helped if I came to a point where I wasn't exactly sure the steps I'd need to complete one of the methods.
+# What are the tradeoffs of using arrays and hashes for this challenge?
+# The only tradeoff I could see is that an array would make this program a lot clunkier. If, for some reason, I made an array of items, and a seperate array for each quantity at respective indeces, or maybe just an array with [item, quantity, item, quatity, etc.] I'd have a lot more work to do iterating through them and implementing them. Hashes make more sense when dealing with items with "quantities" or similar data.
+# What does a method return?
+# A method returns the value of the last function performed, so I need to be aware of not putting 'puts' or something at the end of a method unless I'm testing.
+# How can you pass information between methods?
+# INSTANCE VARIABLES! What magic they are! I'm glad I learned about them and their use in this session, because I can definitely think of a few places in previous challenges where I could have made my code a lot DRYer if I'd known exactly how to use them.
+# What concepts were solidified in this challenge and what is still confusing?
+# I'd say the use of instance variables for sure, along with basic iteration over hashes and arrays, and also setting default values for parameters. I could definitely still benefit from exploring the other various built-in methods for those data structures and ways to manipulate them. I can't think of what is still confusing, but I'm sure something will come up as a road block. If anything, another solidified concept would be the value of researching when in doubt or unsure of what to do. I wouldn't have found out how to use default arguments in my parameters or how instance variables work otherwise.
