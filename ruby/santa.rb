@@ -1,9 +1,9 @@
 class Santa
 
-  attr_reader :age, :ethnicity, :reindeer_ranking
-  attr_accessor :gender
+  attr_reader :reindeer_ranking
+  attr_accessor :gender, :ethnicity, :age
 
-  def initialize(gender, ethnicity)
+  def initialize(gender = "", ethnicity = "")
     puts "Initializing Santa instance..."
     @gender = gender
     @ethnicity = ethnicity
@@ -50,15 +50,41 @@ end
 #   santas << Santa.new(example_genders[i], example_ethnicities[i])
 # end
 
-santa = Santa.new("white", "male")
-p santa.age
-santa.celebrate_birthday
-p santa.age
+# santa = Santa.new("white", "male")
+# p santa.age
+# santa.celebrate_birthday
+# p santa.age
 
-p santa.reindeer_ranking
-santa.get_mad_at=("Rudolph")
-p santa.reindeer_ranking
+# p santa.reindeer_ranking
+# santa.get_mad_at=("Rudolph")
+# p santa.reindeer_ranking
 
-p santa.gender
-santa.gender="female"
-p santa.gender
+# p santa.gender
+# santa.gender="female"
+# p santa.gender
+
+### RELEASE 4: BUILD MANY MANY SANTAS ###
+
+# Algorithm:
+# Use the array of genders provided, plus an array of example ethniticies and create the Santas randomly with those attributes.
+# NOTE: Use documentation to find Array method to chose a random trait
+# Santa's age should be random number between 0 - 140
+# Print out the attributes of each Santa
+
+santas = []
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+500.times do |santa|
+  santa = Santa.new
+  santa.age = rand(140)
+  santa.gender = example_genders.sample
+  santa.ethnicity = example_ethnicities.sample
+  santas << santa
+end
+counter = 1
+puts "Here are the Santas!:"
+santas.each do |santa|
+  puts "Santa Number #{counter}:"
+  puts "Gender: #{santa.gender}, Ethnicity: #{santa.ethnicity}, Age: #{santa.age}"
+  counter += 1
+end
