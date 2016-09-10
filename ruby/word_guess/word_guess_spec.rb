@@ -16,31 +16,42 @@ describe WordGuess do
   end
 
   it "shows a hint of underscores and guessed letters" do
-    expect(game.hint('')).to eq "_ _ _ _ _ _"
+    expect(game.hint).to eq "_ _ _ _ _ _"
   end
 
   it "reveals progress per letter in hint" do
-    expect(game.hint('b')).to eq "b _ _ _ _ _"
+    game.correct_guesses = ['a']
+    expect(game.hint).to eq "_ a _ a _ a"
   end
 
-  it "itializes stored guesses array" do
-    expect(game.guessed_letters).to eq []
+  it "itializes correct guesses array" do
+    expect(game.correct_guesses).to eq []
   end
 
-  it "stores guesses in array" do
+  it "stores correct guesses in correct array" do
     expect(game.guess_store('b')).to eq ['b']
   end
 
+  it "stores incorrect guesses in inccorrect array" do
+    expect(game.guess_store('z')).to eq ['z']
+  end
+
   it "does not count repeat guesses" do
+    game.all_guesses = ['b']
     expect(game.no_repeat('b')).to eq "You already guessed that!"
   end
 
+  # ENDED UP hard coding this in driver code
+  # it "checks for victory" do
+  #   expect(game.win_check).to eq TRUE
+  # end
+
   it "provides a congrats message on winning" do
-    expect(game.victory).to eq "You win! The word was banana!"
+    expect(game.victory).to eq TRUE
   end
 
   it "provides a taunt if user loses" do
-    expect(game.lose).to eq "You lose! Try again!"
+    expect(game.lose).to eq TRUE
   end
 end
 
