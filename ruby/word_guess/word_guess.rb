@@ -81,7 +81,7 @@ puts "Welcome to Word Guesser! It's a fun game!"
 puts "This is for two players. Player 1 enters a word, and Player 2 tries to guess the word!"
 puts "Player 1, what word would you like Player 2 to guess?"
 
-game = WordGuess.new('banana')
+game = WordGuess.new(gets.chomp)
 guess = ''
 while @you_win != TRUE && guess != "quit" && @you_lose != TRUE
   puts "Player 2, you have #{game.guess_count} guesses. What letter would you like to guess?"
