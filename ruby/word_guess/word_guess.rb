@@ -11,12 +11,13 @@
 # Congratulatory message if win, taunt if lose
 
 class WordGuess
-  attr_reader :answer, :guess_count, :guessed_letters
+  attr_reader :answer, :guess_count, :guessed_letters. :you_win
   def initialize(answer)
     @answer = answer.split('')
     @guess_count = answer.length
     @hint = ''
     @guessed_letters = []
+    @you_win = FALSE
   end
 
   def guess_store(letter)
@@ -25,6 +26,24 @@ class WordGuess
 
   def guess_timer
     @guess_count -= 1
+  end
+
+  def no_repeat(letter)
+    @guessed_letters.each do |guessed_let|
+      if letter == guessed_let
+        @guess_count += 1
+      end
+    end
+    p "You already guessed that!"
+  end
+
+  def victory
+    p "You win! The word was #{@answer.join}!"
+    @you_win = TRUE
+  end
+
+  def lose
+    p "You lose! Try again!"
   end
 
   def hint(letter)
@@ -38,6 +57,22 @@ class WordGuess
     @hint.strip!
   end
 end
+
+# DRIVER CODE
+
+puts "Welcome to Word Guesser! It's a fun game!"
+puts "This is for two players. Player 1 enters a word, and Player 2 tries to guess the word!"
+puts "Player 1, what word would you like Player 2 to guess?"
+
+game = WordGuess.new('banana')
+
+# while !game.you_win
+  puts "Player 2, you have #{game.guess_count} guesses. What letter would you like to guess?"
+  puts game.hint(game.answer)
+
+# end
+
+
 
 ######################################
 

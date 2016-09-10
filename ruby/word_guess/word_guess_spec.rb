@@ -32,28 +32,23 @@ describe WordGuess do
   end
 
   it "does not count repeat guesses" do
-    expect(game.no_repeat).to eq "You already guessed that!"
+    expect(game.no_repeat('b')).to eq "You already guessed that!"
   end
 
+  it "provides a congrats message on winning" do
+    expect(game.victory).to eq "You win! The word was banana!"
+  end
+
+  it "provides a taunt if user loses" do
+    expect(game.lose).to eq "You lose! Try again!"
+  end
+end
+
+# NOTES:
 # does not count repeat guesses:
 # has a guess counter that keeps track
 # stores an array of guessed letters
 # checks letter array for repeat values
-
-  it "does not count repeat guesses" do
-#   expect(game.guess("b")).to eq
-  end
-
-  it "provides continual feedback" do
-#    expect(game.feedback).to eq "_ _ _ _ _ _"
-  end
-
-  it "provides a congrats message on winning" do
-  end
-
-  it "provides a taunt if user loses" do
-  end
-end
 
 ########################
 
