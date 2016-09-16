@@ -14,6 +14,26 @@ function longestWord(str_arr) {
   }
   return longestString;
 }
+
+// RELEASE 1: Find a Key-Value Match
+// write a function that takes two objects and checks to see if they share at least one key-value pair. Function will return true or false.
+
+var steven = {
+  name: "Steven",
+  age: 54
+}
+var tamir = {
+  name: "Tamir",
+  age: 54
+}
+var bob = {
+  name: "Bob",
+  age: 70
+}
+function keyValueCompare(objectOne, objectTwo) {
+}
+console.log(bob.name);
+
 // DRIVER CODE:
 console.log(longestWord(someStrings));
 console.log(longestWord(someOtherStrings));
