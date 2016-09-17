@@ -31,9 +31,19 @@ var bob = {
   age: 70
 }
 function keyValueCompare(objectOne, objectTwo) {
+  if (objectOne.age == objectTwo.age) {
+    return true
+  }
+  else {
+    return false;
+  }
 }
-console.log(bob.name);
 
 // DRIVER CODE:
 console.log(longestWord(someStrings));
 console.log(longestWord(someOtherStrings));
+
+console.log(bob.name); // "Bob"
+console.log(bob.age); // 70
+console.log(keyValueCompare(steven, tamir)) // true
+console.log(keyValueCompare(bob, steven)) // false
