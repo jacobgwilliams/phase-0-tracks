@@ -43,7 +43,27 @@ function keyValueCompare(objectOne, objectTwo) {
 }
 
 // RELEASE 2: Generate Random Test Data
-// Write a function that takes
+// Write a function that takes an integer for length and builds an array of strings of that length.
+// Words should vary between 1 and 10 characters
+// PART TWO: Add driver code that generates an array 10 times, printing the array, and also feeding the array into the longest word function, printing the result
+
+function randomString(){
+  var newWord = "";
+  var alphabet = "abcdefghijklmnopqrstuvwxyz";
+  var lengthOfString = Math.floor((Math.random() * 10) + 1);
+  for (var i = 0; i < lengthOfString; i++) {
+      newWord += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+    }
+    return newWord;
+}
+
+function weirdWords(arrayLength) {
+  var randomArray = [];
+  for (var i = 0; i < arrayLength; i++ ){
+    randomArray.push(randomString());
+  }
+  return randomArray;
+}
 
 // DRIVER CODE:
 console.log(longestWord(someStrings));
@@ -55,3 +75,6 @@ console.log(keyValueCompare(steven, tamir)); // true
 console.log(keyValueCompare(bob, steven)); // false
 console.log(keyValueCompare(tamir, tamirTwo)); // true
 
+for (i = 0; i < 10; i++) {
+  console.log(longestWord(weirdWords(5)));
+}
