@@ -17,27 +17,33 @@ function longestWord(str_arr) {
 
 // RELEASE 1: Find a Key-Value Match
 // write a function that takes two objects and checks to see if they share at least one key-value pair. Function will return true or false.
+// it needs to loop through the values and check for whether there is a match
 
-var steven = {
-  name: "Steven",
-  age: 54
+function Human(name, age){
+  this.name = name;
+  this.age = age;
 }
-var tamir = {
-  name: "Tamir",
-  age: 54
-}
-var bob = {
-  name: "Bob",
-  age: 70
-}
+
+var steven = new Human("Steven", 54);
+var bob = new Human("Bob", 70);
+var tamir = new Human("Tamir", 54);
+var tamirTwo = new Human("Tamir", 26);
+
 function keyValueCompare(objectOne, objectTwo) {
-  if (objectOne.age == objectTwo.age) {
-    return true
+  var test = false;
+  for (var i = 0; i < Object.keys(objectOne).length; i++) {
+    if (objectOne[Object.keys(objectOne)[i]] == objectTwo[Object.keys(objectTwo)[i]]){
+      test = true;
+    }
+    else {
+      test = test;
+    }
   }
-  else {
-    return false;
-  }
+  return test;
 }
+
+// RELEASE 2: Generate Random Test Data
+// Write a function that takes
 
 // DRIVER CODE:
 console.log(longestWord(someStrings));
@@ -45,5 +51,7 @@ console.log(longestWord(someOtherStrings));
 
 console.log(bob.name); // "Bob"
 console.log(bob.age); // 70
-console.log(keyValueCompare(steven, tamir)) // true
-console.log(keyValueCompare(bob, steven)) // false
+console.log(keyValueCompare(steven, tamir)); // true
+console.log(keyValueCompare(bob, steven)); // false
+console.log(keyValueCompare(tamir, tamirTwo)); // true
+
