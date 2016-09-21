@@ -1,0 +1,67 @@
+RELEASE 2: Execute SQL Queries
+
+1. Display the information in one table:
+INPUT:
+SELECT * FROM new_yorkers;
+
+OUTPUT:
+1|David|9175555555|true|1
+2|Lisa|5555555555|false|3
+3|Carl|3135555555|true|2
+4|Marlon|3145555555|true|1
+5|Lupe|4145555555|true|4
+6|Jay-Z|5555555|true|1
+7|Martha|1115555555|false|5
+
+2. Update an item that meets some condition (everyone in Manhattan lives together to save money, so all citizens in the manhattan borough now have the same phone number):
+INPUT:
+UPDATE new_yorkers SET phone_number=1111111111 WHERE borough_id=1;
+
+OUTPUT:
+1|David|1111111111|true|1
+2|Lisa|5555555555|false|3
+3|Carl|3135555555|true|2
+4|Marlon|1111111111|true|1
+5|Lupe|4145555555|true|4
+6|Jay-Z|1111111111|true|1
+7|Martha|1115555555|false|5
+
+3. Display the information in both tables using one query
+INPUT:
+SELECT * FROM new_yorkers, boroughs WHERE new_yorkers.borough_id = boroughs.id;
+
+OUTPUT:
+1|David|1111111111|true|1|1|Manhattan
+2|Lisa|5555555555|false|3|3|Queens
+3|Carl|3135555555|true|2|2|Brooklyn
+4|Marlon|1111111111|true|1|1|Manhattan
+5|Lupe|4145555555|true|4|4|Bronx
+6|Jay-Z|1111111111|true|1|1|Manhattan
+7|Martha|1115555555|false|5|5|Staten Island
+
+4. Display a narrower selection of columns from both tables using one query:
+INPUT:
+SELECT new_yorkers.name, boroughs.name FROM new_yorkers JOIN boroughs ON new_yorkers.borough_id = boroughs.id;
+
+OUTPUT:
+David|Manhattan
+Lisa|Queens
+Carl|Brooklyn
+Marlon|Manhattan
+Lupe|Bronx
+Jay-Z|Manhattan
+Martha|Staten Island
+
+5. Delete an item that meets some condition:
+INPUT:
+DELETE FROM new_yorkers WHERE phone_number=1111111111;
+
+OUTPUT:
+2|Lisa|5555555555|false|3
+3|Carl|3135555555|true|2
+5|Lupe|4145555555|true|4
+7|Martha|1115555555|false|5
+
+On different Join types:
+http://www.sql-join.com/sql-join-types
+http://www.cheat-sheets.org/sites/sql.su/
