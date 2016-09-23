@@ -62,7 +62,7 @@ end
 
 def find_item(db, item)
   item = db.execute("SELECT '#{item}' FROM keys")
-  puts "Your #{item['item']} is located here: #{item['location'].}"
+  puts "Your #{item['item']} is located here: #{item['location']}."
 end
 
 def update_location(db, item, location)
@@ -100,6 +100,7 @@ until valid_input == TRUE
   puts "3) Enter a specific item to view"
   puts "4) Update an item's location"
   puts "5) Delete an item from your list"
+  input = gets.chomp
   if input == "1"
     puts "What is the item you'd like to add?"
     item_name = gets.chomp
@@ -142,9 +143,9 @@ until valid_input == TRUE
     until certainty_answer == "y" || certainty_answer == "n"
       puts "Are you sure you want to delete #{item}? [y/n]"
       certainty_answer = gets.chomp
-      if certainty_answer = "y"
+      if certainty_answer == "y"
         delete_item(db, item)
-      elsif certainty_answer = "n"
+      elsif certainty_answer == "n"
         puts "Deletion aborted."
       else
         puts "Invalid input. Please enter 'y' or 'n'."
