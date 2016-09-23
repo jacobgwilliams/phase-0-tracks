@@ -103,7 +103,7 @@ until input == "y" || input == "n"
     puts "Input error: please enter 'y' or 'n'."
   end
 end
-puts "What would you like to do first?"
+puts "What would you like to do?"
 valid_input = FALSE
 until valid_input == TRUE
   puts "Type the number for your desired function:"
@@ -112,6 +112,7 @@ until valid_input == TRUE
   puts "3) Enter a specific item to view"
   puts "4) Update an item's location"
   puts "5) Delete an item from your list"
+  puts "Type 'exit' or 'quit' to close program."
   input = gets.chomp
   if input == "1"
     puts "What is the item you'd like to add?"
@@ -167,3 +168,4 @@ until valid_input == TRUE
   end
 end
 
+puts "Goodbye!"
