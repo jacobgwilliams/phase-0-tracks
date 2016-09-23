@@ -74,20 +74,9 @@ def update_location(db, choice)
   puts "Item location updated."
 end
 
-instruction_manual = "Using KeyPer is simple. Bla bla bla."
+instruction_manual = "Using KeyPer is simple. Follow the instructions to add, update, and delete important items the location of which you don't want to forget."
 
 # DRIVER CODE
-
-# kittens = db.execute("SELECT * FROM keys")
-# puts kittens.class
-# p kittens
-
-# items = db.execute("SELECT 'socks' FROM keys")
-# puts items.class
-# p items
-# items.each do |item|
-#   puts "#{item['item']} is located here: #{item['location']}"
-# end
 
 puts "Welcome to KeyPer! (not trademarked)"
 puts "This is a tool that lets you keep a log of where you place important, but maybe easy to lose items in your home, office, or wherever!"
