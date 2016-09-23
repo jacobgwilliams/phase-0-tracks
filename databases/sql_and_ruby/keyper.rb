@@ -60,9 +60,9 @@ def list_items(db)
   end
 end
 
-def find_item(db, item)
-  item = db.execute("SELECT '#{item}' FROM keys")
-  puts "Your #{keys.item['item']} is located here: #{item['location']}."
+def find_item(db, choice)
+  selection = db.execute("select item, location FROM keys WHERE item='#{choice}'")
+  puts "Your #{selection[0]['item']} is located here: #{selection[0]['location']}."
 end
 
 def update_location(db, item, location)
@@ -76,6 +76,17 @@ end
 instruction_manual = "Using KeyPer is simple. Bla bla bla."
 
 # DRIVER CODE
+
+# kittens = db.execute("SELECT * FROM keys")
+# puts kittens.class
+# p kittens
+
+# items = db.execute("SELECT 'socks' FROM keys")
+# puts items.class
+# p items
+# items.each do |item|
+#   puts "#{item['item']} is located here: #{item['location']}"
+# end
 
 puts "Welcome to KeyPer! (not trademarked)"
 puts "This is a tool that lets you keep a log of where you place important, but maybe easy to lose items in your home, office, or wherever!"
@@ -118,8 +129,8 @@ until valid_input == TRUE
     keys.each do |key|
       puts "#{key['item']}"
     end
-    item = gets.chomp
-    find_item(db, item)
+    choice = gets.chomp
+    find_item(db, choice)
     valid_input = TRUE
   elsif input == "4"
     puts "Which item would you like to update?"
@@ -127,10 +138,10 @@ until valid_input == TRUE
     keys.each do |key|
       puts "#{key['item']}"
     end
-    item = gets.chomp
+    choice = gets.chomp
     puts "Where is the updated location?"
     location = gets.chomp
-    update_location(db, item, location)
+    update_location(db, choice, location)
     valid_input = TRUE
   elsif input == "5"
     puts "Which item would you like to delete?"
@@ -138,13 +149,13 @@ until valid_input == TRUE
     keys.each do |key|
       puts "#{key['item']}"
     end
-    item = gets.chomp
+    choice = gets.chomp
     certainty_answer = nil
     until certainty_answer == "y" || certainty_answer == "n"
-      puts "Are you sure you want to delete #{item}? [y/n]"
+      puts "Are you sure you want to delete #{choice}? [y/n]"
       certainty_answer = gets.chomp
       if certainty_answer == "y"
-        delete_item(db, item)
+        delete_item(db, choice)
       elsif certainty_answer == "n"
         puts "Deletion aborted."
       else
@@ -156,3 +167,4 @@ until valid_input == TRUE
     puts "Invalid Input. Please enter the number of your choice."
   end
 end
+
