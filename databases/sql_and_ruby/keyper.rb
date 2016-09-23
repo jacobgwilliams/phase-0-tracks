@@ -45,18 +45,113 @@ db.execute(create_table_cmd)
 # - An option to remind the user to check on an item's location at a requested time
 
 def add_item(db, item, location)
-  db.execute("INSERT INTO kittens (item, location) VALUES (?, ?)", [item, location])
+  db.execute("INSERT INTO keys (item, location) VALUES (?, ?)", [item, location])
 end
 
-def delete_item(db, item)
-  db.execute() # DELETE ROW FROM ITEM TABLE
+def delete_item(db, choice)
+  db.execute("DELETE FROM keys WHERE #{choice} = #{item['item']}")
 end
 
 def list_items(db)
-  puts "These are your keys:"
+  puts "These are your important items:"
   items = db.execute("SELECT * FROM keys")
   items.each do |item|
     puts "- #{item['item']} is located here: #{item['location']}"
   end
 end
 
+def find_item(db, item)
+  item = db.execute("SELECT '#{item}' FROM keys")
+  puts "Your #{item['item']} is located here: #{item['location'].}"
+end
+
+def update_location(db, item, location)
+  item = db.execute("SELECT '#{item}' FROM keys")
+  puts "Where have you moved your #{item['item']}?"
+  new_location = gets.chomp
+  db.execute("UPDATE #{item['item']} SET location = #{new_location} WHERE #{item} = #{item['item']}")
+  puts "Item location updated."
+end
+
+instruction_manual = "Using KeyPer is simple. Bla bla bla."
+
+# DRIVER CODE
+
+puts "Welcome to KeyPer! (not trademarked)"
+puts "This is a tool that lets you keep a log of where you place important, but maybe easy to lose items in your home, office, or wherever!"
+puts "Do you need instructions? [y/n]"
+input = nil
+until input == "y" || input == "n"
+  input = gets.chomp.downcase
+  if input == "y"
+    puts instruction_manual
+  elsif input == "n"
+    puts "Great!"
+  else
+    puts "Input error: please enter 'y' or 'n'."
+  end
+end
+puts "What would you like to do first?"
+valid_input = FALSE
+until valid_input == TRUE
+  puts "Type the number for your desired function:"
+  puts "1) Add a new item"
+  puts "2) View current list of items and locations"
+  puts "3) Enter a specific item to view"
+  puts "4) Update an item's location"
+  puts "5) Delete an item from your list"
+  if input == "1"
+    puts "What is the item you'd like to add?"
+    item_name = gets.chomp
+    puts "Where is this item stored?"
+    item_location = gets.chomp
+    add_item(db, item_name, item_location)
+    puts "Item has been added."
+    valid_input = TRUE
+  elsif input == "2"
+    list_items(db)
+    valid_input = TRUE
+  elsif input == "3"
+    puts "What item would you like to view?"
+    keys = db.execute("SELECT keys.item FROM keys")
+    keys.each do |key|
+      puts "#{key['key']}"
+    end
+    item = gets.chomp
+    find_item(db, item)
+    valid_input = TRUE
+  elsif input == "4"
+    puts "Which item would you like to update?"
+    keys = db.execute("SELECT keys.item FROM keys")
+    keys.each do |key|
+      puts "#{key['key']}"
+    end
+    item = gets.chomp
+    puts "Where is the updated location?"
+    location = gets.chomp
+    update_location(db, item, location)
+    valid_input = TRUE
+  elsif input == "5"
+    puts "Which item would you like to delete?"
+    keys = db.execute("SELECT keys.item FROM keys")
+    keys.each do |key|
+      puts "#{key['key']}"
+    end
+    item = gets.chomp
+    certainty_answer = nil
+    until certainty_answer == "y" || certainty_answer == "n"
+      puts "Are you sure you want to delete #{item}? [y/n]"
+      certainty_answer = gets.chomp
+      if certainty_answer = "y"
+        delete_item(db, item)
+      elsif certainty_answer = "n"
+        puts "Deletion aborted."
+      else
+        puts "Invalid input. Please enter 'y' or 'n'."
+      end
+    end
+    valid_input = TRUE
+  else
+    puts "Invalid Input. Please enter the number of your choice."
+  end
+end
