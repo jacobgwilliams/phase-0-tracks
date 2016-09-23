@@ -62,7 +62,7 @@ end
 
 def find_item(db, item)
   item = db.execute("SELECT '#{item}' FROM keys")
-  puts "Your #{item['item']} is located here: #{item['location']}."
+  puts "Your #{keys.item['item']} is located here: #{item['location']}."
 end
 
 def update_location(db, item, location)
@@ -125,7 +125,7 @@ until valid_input == TRUE
     puts "Which item would you like to update?"
     keys = db.execute("SELECT keys.item FROM keys")
     keys.each do |key|
-      puts "#{key['key']}"
+      puts "#{key['item']}"
     end
     item = gets.chomp
     puts "Where is the updated location?"
@@ -136,7 +136,7 @@ until valid_input == TRUE
     puts "Which item would you like to delete?"
     keys = db.execute("SELECT keys.item FROM keys")
     keys.each do |key|
-      puts "#{key['key']}"
+      puts "#{key['item']}"
     end
     item = gets.chomp
     certainty_answer = nil
