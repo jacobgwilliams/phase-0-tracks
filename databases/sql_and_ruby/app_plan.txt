@@ -1,0 +1,6 @@
+It would be cool to make a pokemon style game that is super basic.
+Maybe an RPG that involves cleaning up your house.
+A text-based adventure where the goal is to find all of your school supplies. Maybe it could randomly generate things to pick up or the places in which they exist.
+
+It could also just be an app for where you put important things. An app that saves and stores the locations of various items you are always nervous about losing.
+
