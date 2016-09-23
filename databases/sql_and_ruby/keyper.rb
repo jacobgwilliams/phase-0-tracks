@@ -67,13 +67,10 @@ def find_item(db, choice)
 end
 
 def update_location(db, choice)
-  selection = db.execute("SELECT '#{choice}' FROM keys")
-  puts selection
-  puts selection.class
+  selection = db.execute("SELECT item, location FROM keys WHERE item='#{choice}'")
   puts "Where have you moved your #{selection[0]['item']}?"
   new_location = gets.chomp
-  db.execute("UPDATE #{selection[0]['item']} SET location = #{new_location} WHERE item = #{selection[0]['item']}")
-#  db.execute("UPDATE dog SET location='cat house' WHERE item")
+  db.execute("UPDATE keys SET location='#{new_location}' WHERE item='#{selection[0]['item']}'")
   puts "Item location updated."
 end
 
