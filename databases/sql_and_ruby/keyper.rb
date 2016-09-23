@@ -49,7 +49,8 @@ def add_item(db, item, location)
 end
 
 def delete_item(db, choice)
-  db.execute("DELETE FROM keys WHERE #{choice} = #{item['item']}")
+  db.execute("DELETE FROM keys WHERE item = '#{choice}'")
+  puts "#{choice} deleted!"
 end
 
 def list_items(db)
@@ -65,11 +66,14 @@ def find_item(db, choice)
   puts "Your #{selection[0]['item']} is located here: #{selection[0]['location']}."
 end
 
-def update_location(db, item, location)
-  item = db.execute("SELECT '#{item}' FROM keys")
-  puts "Where have you moved your #{item['item']}?"
+def update_location(db, choice)
+  selection = db.execute("SELECT '#{choice}' FROM keys")
+  puts selection
+  puts selection.class
+  puts "Where have you moved your #{selection[0]['item']}?"
   new_location = gets.chomp
-  db.execute("UPDATE #{item['item']} SET location = #{new_location} WHERE #{item} = #{item['item']}")
+  db.execute("UPDATE #{selection[0]['item']} SET location = #{new_location} WHERE item = #{selection[0]['item']}")
+#  db.execute("UPDATE dog SET location='cat house' WHERE item")
   puts "Item location updated."
 end
 
@@ -139,9 +143,7 @@ until valid_input == TRUE
       puts "#{key['item']}"
     end
     choice = gets.chomp
-    puts "Where is the updated location?"
-    location = gets.chomp
-    update_location(db, choice, location)
+    update_location(db, choice)
     valid_input = TRUE
   elsif input == "5"
     puts "Which item would you like to delete?"
