@@ -116,7 +116,7 @@ until valid_input == TRUE
     puts "What item would you like to view?"
     keys = db.execute("SELECT keys.item FROM keys")
     keys.each do |key|
-      puts "#{key['key']}"
+      puts "#{key['item']}"
     end
     item = gets.chomp
     find_item(db, item)
