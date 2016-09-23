@@ -12,3 +12,35 @@
 # The app is mainly self-governed, what are some features to combat human carelessness or forgetfulness?
 # Another feature might be a combination storing feature or a password reminder feature in the event that you have the item stored somewhere you can't remember. You could potentially use a password protected function to access the password or combination to a lock or whatever.
 
+### BEGIN!
+
+# gems
+require 'sqlite3'
+
+# create database
+db = SQlite3::Database.new("keyper.db")
+db.results_as_hash = true
+
+create_table_cmd = <<-SQL
+  CREATE TABLE IF NOT EXISTS keys(
+    id INTEGER PRIMARY KEY,
+    item VARCHAR(255),
+    location VARCHAR(255)
+  )
+SQL
+
+# create a table for you to store your things and their locations
+db.execute(create_table_cmd)
+
+# PSEUDOCODE/Algorithm
+# Should prompt user with instructions on how to use app
+# Should accept user input that does the following:
+# - Add new item to list of items, and a location of where they are
+# - Request to see full list of items
+# - Request an item's location by name (key)
+# - Update an item's location
+# - Delete an item from list
+# Gravy on top might be:
+# - An option for password protected item locations
+# - An option to remind the user to check on an item's location at a requested time
+
