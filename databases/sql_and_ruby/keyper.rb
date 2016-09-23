@@ -18,7 +18,7 @@
 require 'sqlite3'
 
 # create database
-db = SQlite3::Database.new("keyper.db")
+db = SQLite3::Database.new("keyper.db")
 db.results_as_hash = true
 
 create_table_cmd = <<-SQL
