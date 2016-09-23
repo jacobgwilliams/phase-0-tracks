@@ -44,3 +44,19 @@ db.execute(create_table_cmd)
 # - An option for password protected item locations
 # - An option to remind the user to check on an item's location at a requested time
 
+def add_item(db, item, location)
+  db.execute("INSERT INTO kittens (item, location) VALUES (?, ?)", [item, location])
+end
+
+def delete_item(db, item)
+  db.execute() # DELETE ROW FROM ITEM TABLE
+end
+
+def list_items(db)
+  puts "These are your keys:"
+  items = db.execute("SELECT * FROM keys")
+  items.each do |item|
+    puts "- #{item['item']} is located here: #{item['location']}"
+  end
+end
+
