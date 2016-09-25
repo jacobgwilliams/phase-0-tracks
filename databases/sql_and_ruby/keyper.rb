@@ -89,13 +89,13 @@ until input == "y" || input == "n"
   elsif input == "n"
     puts "Great!"
   else
-    puts "Input error: please enter 'y' or 'n'."
+    puts "INPUT ERROR: please enter 'y' or 'n'."
   end
 end
-puts "What would you like to do?"
-valid_input = FALSE
-until valid_input == TRUE
-  puts "Type the number for your desired function:"
+puts "MAIN MENU: What would you like to do?"
+time_to_exit = FALSE
+until time_to_exit == TRUE
+  puts "(Type the number for your desired function:)"
   puts "1) Add a new item"
   puts "2) View current list of items and locations"
   puts "3) Enter a specific item to view"
@@ -103,17 +103,18 @@ until valid_input == TRUE
   puts "5) Delete an item from your list"
   puts "Type 'exit' or 'quit' to close program."
   input = gets.chomp
-  if input == "1"
+  if input == 'exit' || input == 'quit'
+    puts "Thanks for using KeyPer!"
+    time_to_exit = TRUE
+  elsif input == "1"
     puts "What is the item you'd like to add?"
     item_name = gets.chomp
     puts "Where is this item stored?"
     item_location = gets.chomp
     add_item(db, item_name, item_location)
     puts "Item has been added."
-    valid_input = TRUE
   elsif input == "2"
     list_items(db)
-    valid_input = TRUE
   elsif input == "3"
     puts "What item would you like to view?"
     keys = db.execute("SELECT keys.item FROM keys")
@@ -122,7 +123,6 @@ until valid_input == TRUE
     end
     choice = gets.chomp
     find_item(db, choice)
-    valid_input = TRUE
   elsif input == "4"
     puts "Which item would you like to update?"
     keys = db.execute("SELECT keys.item FROM keys")
@@ -131,7 +131,6 @@ until valid_input == TRUE
     end
     choice = gets.chomp
     update_location(db, choice)
-    valid_input = TRUE
   elsif input == "5"
     puts "Which item would you like to delete?"
     keys = db.execute("SELECT keys.item FROM keys")
@@ -151,7 +150,6 @@ until valid_input == TRUE
         puts "Invalid input. Please enter 'y' or 'n'."
       end
     end
-    valid_input = TRUE
   else
     puts "Invalid Input. Please enter the number of your choice."
   end
