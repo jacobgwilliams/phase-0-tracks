@@ -1,0 +1,110 @@
+/*StyleSheet for Marble Page
+By Jacob Williams*/
+
+/***BODY***/
+
+body {
+  background:skyblue;
+  max-width:960px;
+}
+
+/***HEADER, MAIN, FOOTER***/
+
+header{
+  background-image: url("marbleBG.jpg");
+  padding-left:5px;
+  color:lightblue;
+  box-shadow: 5px 5px;
+  position:fixed;
+  height:80px;
+  width:100%;
+  top:0;
+  z-index:1;
+}
+
+header h1 {
+  text-shadow: 2px 2px teal;
+}
+
+main {
+  margin-top:90px;
+}
+
+footer{
+  border:1px dotted;
+  padding:5px;
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  width:50%;
+  background-image: url("marbleBG.jpg");
+}
+
+/***BODY ELEMENTS***/
+
+table, th, td {
+  border:1px solid black;
+  padding:5px;
+  margin:10px;
+}
+
+p, nav a, td {
+  font-family: sans-serif;
+}
+
+.description {
+  width:95%;
+  margin-right:auto;
+  margin-left:auto;
+  border:dotted blue 1px;
+  padding:5px;
+  margin-bottom:5px;
+  background-color:seagreen;
+  border-radius:1em;
+}
+
+a:visited {
+  color:purple;
+}
+
+#featimage {
+  width:80%;
+  overflow:hidden;
+  border:solid;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/***RESPONSIVE DESIGN***/
+
+@media screen and (max-width: 480px) {
+    body {
+      font-size:70%;
+    }
+    header {
+      height:60px;
+    }
+    main {
+      margin-top: 70px;
+    }
+    #featimage {
+      width:100%;
+    }
+    footer {
+      width:100%;
+    }
+}
+
+
+
+/*
+REQS FOR RELEASE 1
+1 padding and border to one element
+2 margin added to at least one element
+3 at least one centered element (footer)
+4 background image on one element
+5 different font for one element
+6 a few elements styled using a class
+7 a different color for visited links
+8 an element styled with an ID
+*/
