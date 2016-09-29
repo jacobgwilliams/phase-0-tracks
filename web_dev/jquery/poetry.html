@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Write me a poem.</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    var magnets = ["love", "hate", "fear", "wonder", "bless", "I", "you", "we", "they", "with", "without", "feel", "hope", "hello", "goodbye", "lost", "found", "sky", "sea", "earth", "god", "face", "heart", "hands", "wait", "go", "save", "hurt", "laugh", "wake", "sleep", "red", "green", "blue", "yellow", "orange", "fail", "succeed", "learn", "cry", "space", "heaven", "hell", "oh", "valiant", "dog", "cat", "rat", "horse", "whale", "election", "build", "quiet", "our", "live", "die"];
+    $(document).ready(function(){
+      for (i = 0; i < magnets.length; i++) {
+        var magnet = document.createElement("button");
+        magnet.setAttribute("onclick", "addLine(" + magnets[i] + ")");
+        magnet.setAttribute("id", magnets[i]);
+        magnet.innerHTML = magnets[i];
+        $("#freezer").append(magnet);
+      };
+    });
+    function addLine(x) {
+      $("#fridge").append(x);
+    }
+  </script>
+</head>
+<body>
+<header>
+<h1>Write me a poem.</h1>
+<p>I want you to write me a poem. But I want you to write it with these refrigerator magnets I found. Would you please?</p>
+</header>
+<main>
+<div id="freezer"></div>
+<div id="fridge"></div>
+</main>
+<footer>
+  <p>Jacob Williams</p>
+  <button onclick="location.reload()">Reset</button>
+</footer>
+</body>
+</html>

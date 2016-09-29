@@ -1,0 +1,20 @@
+header, footer {
+  text-align: center;
+  background-color: #e2dcd3;
+  font-family: Papyrus;
+  padding: 5px;
+}
+body {
+  background-color: #fcf5eb;
+  padding:20px;
+}
+#fridge, #freezer {
+  background-color: #c9c4bc;
+  padding: 10px;
+  padding-right:70px;
+  padding-left:70px;
+  height:200px;
+}
+#fridge button, #freezer button{
+  margin:2px;
+}
