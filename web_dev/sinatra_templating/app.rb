@@ -13,6 +13,7 @@ get '/' do
   erb :home
 end
 
+# adding a new student page
 get '/students/new' do
   erb :new_student
 end
@@ -24,4 +25,13 @@ post '/students' do
   redirect '/'
 end
 
+get '/students/location' do
+  @students = db.execute("SELECT * FROM students WHERE campus=?", params['campus'])
+  erb :student_by_location
+end
+
 # add static resources
+
+# build a form
+
+#
