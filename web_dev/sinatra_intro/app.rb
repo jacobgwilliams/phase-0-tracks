@@ -52,4 +52,14 @@ get '/contact' do
   "5038 NC Hwy 96 South,<br>Oxford, NC 27565"
 end
 
-#
+# write a GET route that retrieves
+# a person's name and says Good job, NAME, otherwise just says Good job!
+
+get '/great_job' do
+  name = params[:name]
+  if name
+    "Great job, #{name}!"
+  else
+    "Great job!"
+  end
+end
