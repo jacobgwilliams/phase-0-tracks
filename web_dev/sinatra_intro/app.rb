@@ -34,6 +34,7 @@ get '/students' do
     response << "Age: #{student['age']}<br>"
     response << "Campus: #{student['campus']}<br><br>"
   end
+  students.to_s
   response
 end
 
@@ -62,4 +63,22 @@ get '/great_job' do
   else
     "Great job!"
   end
+end
+
+# write a GET route that
+# takes two numbers and responds with their sum
+
+get '/addition' do
+  num_1 = params[:num_1].to_i
+  num_2 = params[:num_2].to_i
+  "The sum of #{num_1} and #{num_2} is #{num_1 + num_2}"
+end
+
+# write a GET route that
+# searches the Database (for name)
+# NOTE: unsure why the hell this isn't working... will come back later
+
+get '/namesearch/:name' do
+  student = db.execute("SELECT * FROM students WHERE name=?", [params[:name]])[0]
+  student.to_s
 end
